@@ -1,7 +1,9 @@
 #include <stdio.h>
 int main() {
-    int n, pos, x;
-    int arr[101];
+    int n, pos, x,size;
+    printf("Enter the size of the array: ");
+    scanf("%d", &size);
+    int arr[size];
 
     scanf("%d", &n);
     for (int i = 0; i < n; i++) {
