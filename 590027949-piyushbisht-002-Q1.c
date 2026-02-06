@@ -11,8 +11,8 @@ int main() {
     printf("Enter number of elements:\n");
     scanf("%d", &n);
 
-    if (n >= size) {
-        printf("Array is full\n");
+    if (n > size) {
+        printf("Number of elements exceeds array size\n");
         return 0;
     }
 
@@ -21,26 +21,25 @@ int main() {
         scanf("%d", &arr[i]);
     }
 
-    printf("Enter position and element:\n");
-    scanf("%d %d", &pos, &x);
+    printf("Enter position to delete (1-based):\n");
+    scanf("%d", &pos);
 
-    if (pos < 1 || pos > n + 1) {
+    if (pos < 1 || pos > n) {
         printf("Invalid position\n");
         return 0;
     }
 
-    for (int i = n; i >= pos; i--) {
-        arr[i] = arr[i - 1];
+    for (int i = pos - 1; i < n - 1; i++) {
+        arr[i] = arr[i + 1];
     }
 
-    arr[pos - 1] = x;
-    n++;
+    n--;
 
+    printf("Updated array:\n");
     for (int i = 0; i < n; i++) {
         printf("%d ", arr[i]);
     }
-
     printf("\n");
-
+    
     return 0;
 }
